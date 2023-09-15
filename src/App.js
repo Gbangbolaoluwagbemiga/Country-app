@@ -13,7 +13,10 @@ function App() {
             spellCheck
             className="Input--container"
           />
-          <select className="Input--container">
+          <select className="Input--container" value="">
+            <option disabled selected value="">
+              Filter by Region
+            </option>
             <option value="Africa">Africa</option>
             <option value="America">America</option>
             <option value="Asia">Asia</option>

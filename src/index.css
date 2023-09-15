@@ -11,9 +11,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 2rem;
+  margin: 4rem 2rem;
 }
 .Input--container {
   width: 20%;
   padding: 0.25rem;
+  border-radius: 5px;
+}
+select option[value=''] {
+  display: none;
+}
+
+.input--container {
+  position: relative;
+}
+
+input[type='text']::placeholder::after {
+  content: '\f002'; /* Unicode for your icon, such as FontAwesome */
+  font-family: FontAwesome; /* Use the font family that includes your icon */
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust this value to control the icon's position */
+  transform: translateY(-50%);
 }
