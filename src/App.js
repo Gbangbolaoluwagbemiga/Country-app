@@ -61,6 +61,9 @@ function CountryItem({country}) {
         alt={country.name}
       />
       <p className="fw-bold fs-3">{country.name}</p>
+      <p>Population: {country.population}</p>
+      <p>Region: {country.region}</p>
+      <p>Capital: {country.capital}</p>
     </div>
   );
 }
