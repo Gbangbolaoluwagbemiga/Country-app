@@ -13,6 +13,7 @@ function App() {
             spellCheck
             className="Input--container"
           />
+          <i class="fa-solid fa-magnifying-glass"></i>
           <select className="Input--container" value="">
             <option disabled selected value="">
               Filter by Region
@@ -21,7 +22,7 @@ function App() {
             <option value="America">America</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
-            <option value="Oceania">Ocenia</option>
+            <option value="Oceania">Oceania</option>
           </select>
         </div>
       </main>

@@ -27,7 +27,7 @@ select option[value=''] {
 }
 
 input[type='text']::placeholder::after {
-  content: '\f002'; /* Unicode for your icon, such as FontAwesome */
+  content: 'yt'; /* Unicode for your icon, such as FontAwesome */
   font-family: FontAwesome; /* Use the font family that includes your icon */
   position: absolute;
   top: 50%;
