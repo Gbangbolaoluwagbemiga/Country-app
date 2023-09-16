@@ -44,19 +44,24 @@ function SearchBox() {
 
 function CountryBox() {
   return (
-    <ul>
+    <div className="row">
       {data.map(country => (
         <CountryItem country={country} />
       ))}
-    </ul>
+    </div>
   );
 }
 
 function CountryItem({country}) {
   return (
-    <>
-      <li>{country.name}</li>
-    </>
+    <div className="col-sm-3 country--container ">
+      <img
+        className="Country--flag"
+        src={country.flags.png}
+        alt={country.name}
+      />
+      <p className="fw-bold fs-3">{country.name}</p>
+    </div>
   );
 }
 

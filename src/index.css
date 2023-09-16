@@ -21,16 +21,11 @@ body {
 select option[value=''] {
   display: none;
 }
-
-.input--container {
-  position: relative;
+.country--container {
+  /* margin: 0.25rem; */
 }
 
-input[type='text']::placeholder::after {
-  content: 'yt'; /* Unicode for your icon, such as FontAwesome */
-  font-family: FontAwesome; /* Use the font family that includes your icon */
-  position: absolute;
-  top: 50%;
-  right: 10px; /* Adjust this value to control the icon's position */
-  transform: translateY(-50%);
+.Country--flag {
+  width: 90%;
+  height: 25vh;
 }
