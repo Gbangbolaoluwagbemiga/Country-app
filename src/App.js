@@ -3,7 +3,8 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <Main />
+      <SearchBox />
+      <CountryBox />
     </div>
   );
 }
@@ -17,8 +18,8 @@ function Header() {
   );
 }
 
-function Main() {
-  <main>
+function SearchBox() {
+  return (
     <div className="search--category">
       <input
         type="text"
@@ -38,9 +39,25 @@ function Main() {
         <option value="Oceania">Oceania</option>
       </select>
     </div>
-    <div className="details"></div>
-    {data.forEach(data => data.flags.png)}
-  </main>;
+  );
+}
+
+function CountryBox() {
+  return (
+    <ul>
+      {data.map(country => (
+        <CountryItem country={country} />
+      ))}
+    </ul>
+  );
+}
+
+function CountryItem({country}) {
+  return (
+    <>
+      <li>{country.name}</li>
+    </>
+  );
 }
 
 export default App;
