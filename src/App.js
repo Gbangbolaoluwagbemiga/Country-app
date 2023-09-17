@@ -54,16 +54,16 @@ function CountryBox() {
 
 function CountryItem({country}) {
   return (
-    <div className="col-sm-3 country--container ">
+    <div className="col-sm-3 justify gap-3 country--container my-5">
       <img
         className="Country--flag"
         src={country.flags.png}
         alt={country.name}
       />
-      <p className="fw-bold fs-3">{country.name}</p>
-      <p>Population: {country.population}</p>
-      <p>Region: {country.region}</p>
-      <p>Capital: {country.capital}</p>
+      <p className="fw-bold fs-3 text-detail mt-5">{country.name}</p>
+      <p className="line--adjustment">Population: {country.population}</p>
+      <p className="line--adjustment">Region: {country.region}</p>
+      <p className="line--adjustment">Capital: {country.capital}</p>
     </div>
   );
 }
