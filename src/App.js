@@ -1,13 +1,21 @@
 import {useState} from 'react';
 import {data} from './data.js';
 function App() {
-  const [isIndivualCountryOpen, setIsIndividualCountryOpen] = useState(false);
+  const [countryOpen, setCountryOpen] = useState(false);
+
+  function handleCountryOpen() {
+    setCountryOpen(prev => !prev);
+  }
 
   return (
     <div className="container">
       <Header />
       <SearchBox />
-      <CountryBox />
+      {countryOpen ? (
+        <IndividualCountry />
+      ) : (
+        <CountryBox onCountryOpen={handleCountryOpen} />
+      )}
     </div>
   );
 }
@@ -45,9 +53,9 @@ function SearchBox() {
   );
 }
 
-function CountryBox() {
+function CountryBox({onCountryOpen}) {
   return (
-    <div className="row">
+    <div className="row" onClick={onCountryOpen}>
       {data.map(country => (
         <CountryItem country={country} />
       ))}
