@@ -67,5 +67,28 @@ function CountryItem({country}) {
     </div>
   );
 }
+function IndividualCountry() {
+  return (
+    <div className="row">
+      <div className="col-sm-4">
+        <img src="" alt="" />
+      </div>
+      <div className="col-sm-4">
+        <p>Native Name</p>
+        <p>Population</p>
+        <p>Region</p>
+        <p>Sub Region</p>
+        <p>Capital</p>
+
+        <p className="row">Borders countries:</p>
+      </div>
+      <div className="col-sm-4">
+        <p>Top Level Domain:</p>
+        <p>Currencies:</p>
+        <p>Languages:</p>
+      </div>
+    </div>
+  );
+}
 
 export default App;
