@@ -1,5 +1,8 @@
+import {useState} from 'react';
 import {data} from './data.js';
 function App() {
+  const [isIndivualCountryOpen, setIsIndividualCountryOpen] = useState(false);
+
   return (
     <div className="container">
       <Header />
