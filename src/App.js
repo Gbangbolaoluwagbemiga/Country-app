@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {data} from './data.js';
 function App() {
   const [countryOpen, setCountryOpen] = useState(false);
@@ -16,7 +16,10 @@ function App() {
     <div className="container">
       <Header />
       {countryOpen ? (
-        <IndividualCountry onReturnCountry={handleCountryOpen} />
+        <IndividualCountry
+          onReturnCountry={handleCountryOpen}
+          countryId={countryId}
+        />
       ) : (
         <>
           <SearchBox />
@@ -101,7 +104,14 @@ function CountryItem({country, onSetCountryId, countryId}) {
     </div>
   );
 }
-function IndividualCountry({onReturnCountry}) {
+function IndividualCountry({onReturnCountry, countryId}) {
+  useEffect(function () {
+    async function getCountryDetail() {
+      const res = fetch(`https://restcountries.com/v3.1/alpha/${countryId}
+      `);
+    }
+  }, {});
+
   return (
     <>
       <button
