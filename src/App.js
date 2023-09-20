@@ -10,11 +10,13 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <SearchBox />
       {countryOpen ? (
-        <IndividualCountry />
+        <IndividualCountry onReturnCountry={handleCountryOpen} />
       ) : (
-        <CountryBox onCountryOpen={handleCountryOpen} />
+        <>
+          <SearchBox />
+          <CountryBox onCountryOpen={handleCountryOpen} />)
+        </>
       )}
     </div>
   );
@@ -78,27 +80,36 @@ function CountryItem({country}) {
     </div>
   );
 }
-function IndividualCountry() {
+function IndividualCountry({onReturnCountry}) {
   return (
-    <div className="row">
-      <div className="col-sm-4">
-        <img src="" alt="" />
-      </div>
-      <div className="col-sm-4">
-        <p>Native Name</p>
-        <p>Population</p>
-        <p>Region</p>
-        <p>Sub Region</p>
-        <p>Capital</p>
+    <>
+      <button
+        style={{display: 'inline'}}
+        className="btn-back"
+        onClick={onReturnCountry}
+      >
+        &larr;
+      </button>
+      <div className="row">
+        <div className="col-sm-4">
+          <img src="" alt="" />
+        </div>
+        <div className="col-sm-4">
+          <p>Native Name</p>
+          <p>Population</p>
+          <p>Region</p>
+          <p>Sub Region</p>
+          <p>Capital</p>
 
-        <p className="row">Borders countries:</p>
+          <p className="row">Borders countries:</p>
+        </div>
+        <div className="col-sm-4">
+          <p>Top Level Domain:</p>
+          <p>Currencies:</p>
+          <p>Languages:</p>
+        </div>
       </div>
-      <div className="col-sm-4">
-        <p>Top Level Domain:</p>
-        <p>Currencies:</p>
-        <p>Languages:</p>
-      </div>
-    </div>
+    </>
   );
 }
 

@@ -38,6 +38,10 @@ select option[value=''] {
   line-height: 10px;
   margin: 10px auto;
 }
+.btn-back {
+  width: 2rem;
+  height: 2rem;
+}
 
 @media screen and (max-width: 567px) {
   .Country--flag {
