@@ -2,9 +2,14 @@ import {useState} from 'react';
 import {data} from './data.js';
 function App() {
   const [countryOpen, setCountryOpen] = useState(false);
+  const [countryId, setCountryId] = useState(null);
 
   function handleCountryOpen() {
     setCountryOpen(prev => !prev);
+  }
+
+  function handleCountryId(id) {
+    setCountryId(countryId => (id === countryId ? null : id));
   }
 
   return (
@@ -15,7 +20,11 @@ function App() {
       ) : (
         <>
           <SearchBox />
-          <CountryBox onCountryOpen={handleCountryOpen} />)
+          <CountryBox
+            onCountryOpen={handleCountryOpen}
+            onSetCountryId={handleCountryId}
+            countryId={countryId}
+          />
         </>
       )}
     </div>
@@ -55,19 +64,31 @@ function SearchBox() {
   );
 }
 
-function CountryBox({onCountryOpen}) {
+function CountryBox({onCountryOpen, onSetCountryId, countryId}) {
   return (
     <div className="row" onClick={onCountryOpen}>
       {data.map(country => (
-        <CountryItem country={country} />
+        <CountryItem
+          country={country}
+          onSetCountryId={onSetCountryId}
+          countryId={countryId}
+          key={country.name}
+        />
       ))}
     </div>
   );
 }
 
-function CountryItem({country}) {
+function CountryItem({country, onSetCountryId, countryId}) {
+  function handleCountryId() {
+    onSetCountryId(country.callingCodes);
+    console.log(countryId);
+  }
   return (
-    <div className="col-sm-3 justify gap-3 country--container my-5">
+    <div
+      className="col-sm-3 justify gap-3 country--container my-5"
+      onClick={handleCountryId}
+    >
       <img
         className="Country--flag"
         src={country.flags.png}
