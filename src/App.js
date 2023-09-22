@@ -120,14 +120,18 @@ function IndividualCountry({onReturnCountry, countryId, onHandleCountryId}) {
             {' '}
             <button
               style={{display: 'inline'}}
-              className="btn-back"
+              className="btn-back mb-5 mt-2"
               onClick={handleReturn}
             >
               &larr;
             </button>
-            <div className="row">
+            <div className="row m-5">
               <div className="col-sm-4">
-                <img src={country.flag} alt={`${country.name} flag`} />
+                <img
+                  src={country.flag}
+                  alt={`${country.name} flag`}
+                  className="Country--flag"
+                />
               </div>
               <div className="col-sm-4">
                 <p>Native Name: {country.name}</p>
@@ -136,10 +140,8 @@ function IndividualCountry({onReturnCountry, countryId, onHandleCountryId}) {
                 <p>Sub Region: {country.subregion}</p>
                 <p>Capital: {country.capital} </p>
 
-                <p className="row">
-                  {!country.borders ? (
-                    ''
-                  ) : (
+                <p>
+                  {country.borders && (
                     <>
                       Borders countries: {country?.borders[0]},
                       {country?.borders[1]}
