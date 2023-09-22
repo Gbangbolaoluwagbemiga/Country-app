@@ -6,6 +6,7 @@ function App() {
 
   function handleCountryOpen() {
     setCountryOpen(prev => !prev);
+    // setCountryId(null);
   }
 
   function handleCountryId(id) {
@@ -114,32 +115,50 @@ function IndividualCountry({onReturnCountry, countryId}) {
 
   return (
     <>
-      <button
-        style={{display: 'inline'}}
-        className="btn-back"
-        onClick={onReturnCountry}
-      >
-        &larr;
-      </button>
-      <div className="row">
-        <div className="col-sm-4">
-          <img src="" alt="" />
-        </div>
-        <div className="col-sm-4">
-          <p>Native Name</p>
-          <p>Population</p>
-          <p>Region</p>
-          <p>Sub Region</p>
-          <p>Capital</p>
+      {data.map(country =>
+        country.callingCodes === countryId ? (
+          <div className="country--details" key={country.name}>
+            {' '}
+            <button
+              style={{display: 'inline'}}
+              className="btn-back"
+              onClick={onReturnCountry}
+            >
+              &larr;
+            </button>
+            <div className="row">
+              <div className="col-sm-4">
+                <img src={country.flag} alt={`${country.name} flag`} />
+              </div>
+              <div className="col-sm-4">
+                <p>Native Name: {country.name}</p>
+                <p>Population: {country.population}</p>
+                <p>Region: {country.region}</p>
+                <p>Sub Region: {country.subregion}</p>
+                <p>Capital: {country.capital} </p>
 
-          <p className="row">Borders countries:</p>
-        </div>
-        <div className="col-sm-4">
-          <p>Top Level Domain:</p>
-          <p>Currencies:</p>
-          <p>Languages:</p>
-        </div>
-      </div>
+                <p className="row">
+                  {!country.borders ? (
+                    ''
+                  ) : (
+                    <>
+                      Borders countries: {country?.borders[0]},
+                      {country?.borders[1]}
+                    </>
+                  )}
+                </p>
+              </div>
+              <div className="col-sm-4">
+                <p>Top Level Domain: {country.topLevelDomain}</p>
+                <p>Currencies: {country.currencies[0].code}</p>
+                <p>Languages: {country.languages[0].name}</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ''
+        )
+      )}{' '}
     </>
   );
 }
