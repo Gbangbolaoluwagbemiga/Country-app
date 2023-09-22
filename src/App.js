@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {data} from './data.js';
 function App() {
   const [countryOpen, setCountryOpen] = useState(false);
@@ -6,7 +6,9 @@ function App() {
 
   function handleCountryOpen() {
     setCountryOpen(prev => !prev);
-    // setCountryId(null);
+  }
+  function handleCountryId() {
+    setCountryId(null);
   }
 
   function handleCountryId(id) {
@@ -19,6 +21,7 @@ function App() {
       {countryOpen ? (
         <IndividualCountry
           onReturnCountry={handleCountryOpen}
+          onHandleCountryId={handleCountryId}
           countryId={countryId}
         />
       ) : (
@@ -86,7 +89,6 @@ function CountryBox({onCountryOpen, onSetCountryId, countryId}) {
 function CountryItem({country, onSetCountryId, countryId}) {
   function handleCountryId() {
     onSetCountryId(country.callingCodes);
-    console.log(countryId);
   }
   return (
     <div
@@ -105,14 +107,11 @@ function CountryItem({country, onSetCountryId, countryId}) {
     </div>
   );
 }
-function IndividualCountry({onReturnCountry, countryId}) {
-  useEffect(function () {
-    async function getCountryDetail() {
-      const res = fetch(`https://restcountries.com/v3.1/alpha/${countryId}
-      `);
-    }
-  }, {});
-
+function IndividualCountry({onReturnCountry, countryId, onHandleCountryId}) {
+  function handleReturn() {
+    onReturnCountry();
+    onHandleCountryId();
+  }
   return (
     <>
       {data.map(country =>
@@ -122,7 +121,7 @@ function IndividualCountry({onReturnCountry, countryId}) {
             <button
               style={{display: 'inline'}}
               className="btn-back"
-              onClick={onReturnCountry}
+              onClick={handleReturn}
             >
               &larr;
             </button>
