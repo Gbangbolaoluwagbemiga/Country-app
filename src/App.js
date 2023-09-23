@@ -1,14 +1,15 @@
 import {useState} from 'react';
 import {data} from './data.js';
-import {numeral} from 'numeral';
+// import numeral from 'numeral';
 function App() {
   const [countryOpen, setCountryOpen] = useState(false);
   const [countryId, setCountryId] = useState(null);
+  const [searchBtn, setSearchBtn] = useState('');
 
   function handleCountryOpen() {
     setCountryOpen(prev => !prev);
   }
-  function handleCountryId() {
+  function handleResetId() {
     setCountryId(null);
   }
 
@@ -22,12 +23,12 @@ function App() {
       {countryOpen ? (
         <IndividualCountry
           onReturnCountry={handleCountryOpen}
-          onHandleCountryId={handleCountryId}
+          onHandleCountryId={handleResetId}
           countryId={countryId}
         />
       ) : (
         <>
-          <SearchBox />
+          <SearchBox setSearchBtn={setSearchBtn} />
           <CountryBox
             onCountryOpen={handleCountryOpen}
             onSetCountryId={handleCountryId}
@@ -48,7 +49,7 @@ function Header() {
   );
 }
 
-function SearchBox() {
+function SearchBox({setSearchBtn}) {
   return (
     <div className="search--category">
       <input
@@ -56,6 +57,7 @@ function SearchBox() {
         placeholder="Search for a country"
         spellCheck
         className="Input--container"
+        onChange={e => setSearchBtn(e.target.value)}
       />
       <i className="fa-solid fa-magnifying-glass"></i>
       <select className="Input--container" value="">
@@ -103,7 +105,7 @@ function CountryItem({country, onSetCountryId, countryId}) {
       />
       <p className="fw-bold fs-3 text-detail mt-5">{country.name}</p>
       <p className="line--adjustment">
-        Population: {numeral(country.population).format('0,0')}
+        {/* Population: {numeral(country.population).format('0.0')} */}
       </p>
       <p className="line--adjustment">Region: {country.region}</p>
       <p className="line--adjustment">Capital: {country.capital}</p>
@@ -123,7 +125,7 @@ function IndividualCountry({onReturnCountry, countryId, onHandleCountryId}) {
             {' '}
             <button
               style={{display: 'inline'}}
-              className="btn-back mb-5 mt-2"
+              className="btn-back mb-md-5 mt-2"
               onClick={handleReturn}
             >
               &larr;
