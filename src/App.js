@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {data} from './data.js';
 import numeral from 'numeral';
 function App() {
@@ -16,26 +16,35 @@ function App() {
   function handleCountryId(id) {
     setCountryId(countryId => (id === countryId ? null : id));
   }
-
+  useEffect(
+    function () {
+      data.find(el =>
+        el.name === searchBtn ? console.log('HI') : console.log('No')
+      );
+    },
+    [searchBtn]
+  );
   return (
     <div className="container">
       <Header />
-      {countryOpen ? (
-        <IndividualCountry
-          onReturnCountry={handleCountryOpen}
-          onHandleCountryId={handleResetId}
-          countryId={countryId}
-        />
-      ) : (
-        <>
-          <SearchBox setSearchBtn={setSearchBtn} />
-          <CountryBox
-            onCountryOpen={handleCountryOpen}
-            onSetCountryId={handleCountryId}
+      <div className="">
+        {countryOpen ? (
+          <IndividualCountry
+            onReturnCountry={handleCountryOpen}
+            onHandleCountryId={handleResetId}
             countryId={countryId}
           />
-        </>
-      )}
+        ) : (
+          <>
+            <SearchBox setSearchBtn={setSearchBtn} />
+            <CountryBox
+              onCountryOpen={handleCountryOpen}
+              onSetCountryId={handleCountryId}
+              countryId={countryId}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 }
