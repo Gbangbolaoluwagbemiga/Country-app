@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <div className="">
+      <div className=" ">
         {countryOpen ? (
           <IndividualCountry
             onReturnCountry={handleCountryOpen}
