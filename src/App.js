@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {data} from './data.js';
-// import numeral from 'numeral';
+import numeral from 'numeral';
 function App() {
   const [countryOpen, setCountryOpen] = useState(false);
   const [countryId, setCountryId] = useState(null);
@@ -105,7 +105,7 @@ function CountryItem({country, onSetCountryId, countryId}) {
       />
       <p className="fw-bold fs-3 text-detail mt-5">{country.name}</p>
       <p className="line--adjustment">
-        {/* Population: {numeral(country.population).format('0.0')} */}
+        Population: {numeral(country.population).format('0,0')}
       </p>
       <p className="line--adjustment">Region: {country.region}</p>
       <p className="line--adjustment">Capital: {country.capital}</p>
@@ -140,7 +140,7 @@ function IndividualCountry({onReturnCountry, countryId, onHandleCountryId}) {
               </div>
               <div className="col-sm-4">
                 <p>Native Name: {country.name}</p>
-                <p>Population: {country.population}</p>
+                <p>Population: {numeral(country.population).format('0,0')}</p>
                 <p>Region: {country.region}</p>
                 <p>Sub Region: {country.subregion}</p>
                 <p>Capital: {country.capital} </p>
