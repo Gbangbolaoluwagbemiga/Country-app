@@ -38,6 +38,8 @@ function App() {
   return (
     <div className="container">
       <Header />
+      <SearchBox setSearchBtn={setSearchBtn} />
+
       {searchBtn === '' && (
         <div className=" ">
           {countryOpen ? (
@@ -48,7 +50,6 @@ function App() {
             />
           ) : (
             <>
-              <SearchBox setSearchBtn={setSearchBtn} />
               <CountryBox
                 onCountryOpen={handleCountryOpen}
                 onSetCountryId={handleCountryId}
@@ -58,6 +59,7 @@ function App() {
           )}
         </div>
       )}
+      {searchBtn !== '' && <div>Hiiiii</div>}
     </div>
   );
 }
