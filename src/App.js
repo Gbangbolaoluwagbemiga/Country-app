@@ -18,9 +18,15 @@ function App() {
   }
   useEffect(
     function () {
-      data.find(el =>
-        el.name === searchBtn ? console.log('HI') : console.log('No')
-      );
+      async function countryName() {
+        const res = await fetch(
+          `https://restcountries.com/v3.1/name/${searchBtn}?fullText=true
+          `
+        );
+        const data = await res.json();
+        console.log(data);
+      }
+      countryName();
     },
     [searchBtn]
   );
