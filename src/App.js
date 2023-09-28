@@ -19,38 +19,45 @@ function App() {
   useEffect(
     function () {
       async function countryName() {
-        const res = await fetch(
-          `https://restcountries.com/v3.1/name/${searchBtn}?fullText=true
+        try {
+          const res = await fetch(
+            `https://restcountries.com/v3.1/name/${searchBtn}?fullText=true
           `
-        );
-        const data = await res.json();
-        console.log(data);
+          );
+          const data = await res.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
+
+        countryName();
       }
-      countryName();
     },
     [searchBtn]
   );
   return (
     <div className="container">
       <Header />
-      <div className=" ">
-        {countryOpen ? (
-          <IndividualCountry
-            onReturnCountry={handleCountryOpen}
-            onHandleCountryId={handleResetId}
-            countryId={countryId}
-          />
-        ) : (
-          <>
-            <SearchBox setSearchBtn={setSearchBtn} />
-            <CountryBox
-              onCountryOpen={handleCountryOpen}
-              onSetCountryId={handleCountryId}
+      {searchBtn === '' && (
+        <div className=" ">
+          {countryOpen ? (
+            <IndividualCountry
+              onReturnCountry={handleCountryOpen}
+              onHandleCountryId={handleResetId}
               countryId={countryId}
             />
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <SearchBox setSearchBtn={setSearchBtn} />
+              <CountryBox
+                onCountryOpen={handleCountryOpen}
+                onSetCountryId={handleCountryId}
+                countryId={countryId}
+              />
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }
