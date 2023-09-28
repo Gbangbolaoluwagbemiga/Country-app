@@ -53,6 +53,7 @@ function App() {
           ) : (
             <>
               <CountryBox
+                countryApi={countryApi}
                 onCountryOpen={handleCountryOpen}
                 onSetCountryId={handleCountryId}
                 countryId={countryId}
@@ -100,10 +101,10 @@ function SearchBox({setSearchBtn}) {
   );
 }
 
-function CountryBox({onCountryOpen, onSetCountryId, countryId}) {
+function CountryBox({onCountryOpen, onSetCountryId, countryId, countryApi}) {
   return (
     <div className="row" onClick={onCountryOpen}>
-      {data.map(country => (
+      {countryApi.map(country => (
         <CountryItem
           country={country}
           onSetCountryId={onSetCountryId}
