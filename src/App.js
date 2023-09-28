@@ -5,6 +5,7 @@ function App() {
   const [countryOpen, setCountryOpen] = useState(false);
   const [countryId, setCountryId] = useState(null);
   const [searchBtn, setSearchBtn] = useState('');
+  const [countryApi, setCountryApi] = useState(data);
 
   function handleCountryOpen() {
     setCountryOpen(prev => !prev);
@@ -25,7 +26,7 @@ function App() {
           `
           );
           const data = await res.json();
-          console.log(data);
+          setCountryApi(data);
         } catch (error) {
           console.log(error);
         }
@@ -44,6 +45,7 @@ function App() {
         <div className=" ">
           {countryOpen ? (
             <IndividualCountry
+              countryApi={countryApi}
               onReturnCountry={handleCountryOpen}
               onHandleCountryId={handleResetId}
               countryId={countryId}
@@ -59,7 +61,7 @@ function App() {
           )}
         </div>
       )}
-      {searchBtn !== '' && <div>Hiiiii</div>}
+      {/* {searchBtn !== '' && <div>{countryApi.}</div>} */}
     </div>
   );
 }
@@ -136,14 +138,19 @@ function CountryItem({country, onSetCountryId, countryId}) {
     </div>
   );
 }
-function IndividualCountry({onReturnCountry, countryId, onHandleCountryId}) {
+function IndividualCountry({
+  onReturnCountry,
+  countryId,
+  onHandleCountryId,
+  countryApi,
+}) {
   function handleReturn() {
     onReturnCountry();
     onHandleCountryId();
   }
   return (
     <>
-      {data.map(country =>
+      {countryApi.map(country =>
         country.callingCodes === countryId ? (
           <div className="country--details" key={country.name}>
             {' '}
