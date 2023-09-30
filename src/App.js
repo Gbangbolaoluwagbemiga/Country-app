@@ -7,8 +7,6 @@ function App() {
   const [searchBtn, setSearchBtn] = useState('');
   const [countryApi, setCountryApi] = useState(data);
 
-  console.log(countryApi);
-
   function handleCountryOpen() {
     setCountryOpen(prev => !prev);
   }
