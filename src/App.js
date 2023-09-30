@@ -7,6 +7,8 @@ function App() {
   const [searchBtn, setSearchBtn] = useState('');
   const [countryApi, setCountryApi] = useState(data);
 
+  console.log(countryApi);
+
   function handleCountryOpen() {
     setCountryOpen(prev => !prev);
   }
@@ -25,14 +27,13 @@ function App() {
             `https://restcountries.com/v3.1/name/${searchBtn}?fullText=true
           `
           );
-          const data = await res.json();
-          setCountryApi(data);
+          const fetchData = await res.json();
+          setCountryApi(fetchData);
         } catch (error) {
           console.log(error);
         }
-
-        countryName();
       }
+      countryName();
     },
     [searchBtn]
   );
@@ -103,7 +104,7 @@ function SearchBox({setSearchBtn}) {
 function CountryBox({onCountryOpen, onSetCountryId, countryId, countryApi}) {
   return (
     <div className="row" onClick={onCountryOpen}>
-      {countryApi.map(country => (
+      {data.map(country => (
         <CountryItem
           country={country}
           onSetCountryId={onSetCountryId}
@@ -150,7 +151,7 @@ function IndividualCountry({
   }
   return (
     <>
-      {countryApi.map(country =>
+      {data.map(country =>
         country.callingCodes === countryId ? (
           <div className="country--details" key={country.name}>
             {' '}
