@@ -15,8 +15,8 @@ body {
 }
 .Input--container {
   width: 20%;
-  padding: 0.25rem;
-  border-radius: 5px;
+  padding: 0.5rem 0.25rem;
+  border-radius: 10px;
 }
 select option[value=''] {
   display: none;
@@ -47,8 +47,13 @@ select option[value=''] {
   .Country--flag {
     width: 100%;
   }
+  .nav--bar,
+  .search--category {
+    margin: 0;
+  }
+
   .Input--container {
-    width: 50%;
+    width: 45%;
     margin: 0;
   }
 }
