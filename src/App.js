@@ -17,19 +17,28 @@ function App() {
   function handleCountryId(id) {
     setCountryId(countryId => (id === countryId ? null : id));
   }
-
+  useEffect(
+    function () {
+      async function countryName() {
+        try {
+          const res = await fetch(
+            `https://restcountries.com/v3.1/name/${searchBtn}?fullText=true
+          `
+          );
+          const fetchData = await res.json();
+          setCountryApi(fetchData);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      countryName();
+    },
+    [searchBtn]
+  );
   return (
     <div className="container">
       <Header />
-      {!countryOpen ? (
-        <SearchBox
-          setSearchBtn={setSearchBtn}
-          searchBtn={searchBtn}
-          countryApi={countryApi}
-        />
-      ) : (
-        ''
-      )}
+      {!countryOpen ? <SearchBox setSearchBtn={setSearchBtn} /> : ''}
       {searchBtn === '' && (
         <div className=" ">
           {countryOpen ? (
@@ -65,26 +74,7 @@ function Header() {
   );
 }
 
-function SearchBox({setSearchBtn, searchBtn, setCountryApi}) {
-  useEffect(
-    function () {
-      async function countryName() {
-        try {
-          const res = await fetch(
-            `https://restcountries.com/v3.1/name/${searchBtn}?fullText=true
-          `
-          );
-          const fetchData = await res.json();
-          console.log(fetchData);
-          setCountryApi(fetchData);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      countryName();
-    },
-    [searchBtn]
-  );
+function SearchBox({setSearchBtn}) {
   return (
     <div className="search--category">
       <input
