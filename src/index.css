@@ -42,6 +42,10 @@ select option[value=''] {
   width: 2rem;
   height: 2rem;
 }
+.bold--text {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
 
 @media screen and (max-width: 567px) {
   .Country--flag {
