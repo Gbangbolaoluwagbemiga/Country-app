@@ -128,7 +128,7 @@ function CountryItem({country, onSetCountryId, countryId}) {
         src={country.flags.png}
         alt={country.name}
       />
-      <p className="fw-bold fs-3 text-detail mt-5">{country.name}.</p>
+      <p className="fw-bold fs-3 text-detail mt-5">{country.name}</p>
       <p className="line--adjustment">
         <span className="bold--text">Population:</span>{' '}
         {numeral(country.population).format('0,0')}.
