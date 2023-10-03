@@ -128,12 +128,12 @@ function CountryItem({country, onSetCountryId, countryId}) {
         src={country.flags.png}
         alt={country.name}
       />
-      <p className="fw-bold fs-3 text-detail mt-5">{country.name}</p>
+      <p className="fw-bold fs-3 text-detail mt-5">{country.name}.</p>
       <p className="line--adjustment">
-        Population: {numeral(country.population).format('0,0')}
+        Population: {numeral(country.population).format('0,0')}.
       </p>
-      <p className="line--adjustment">Region: {country.region}</p>
-      <p className="line--adjustment">Capital: {country.capital}</p>
+      <p className="line--adjustment">Region: {country.region}.</p>
+      <p className="line--adjustment">Capital: {country.capital}.</p>
     </div>
   );
 }
@@ -169,25 +169,25 @@ function IndividualCountry({
                 />
               </div>
               <div className="col-sm-4">
-                <p>Native Name: {country.name}</p>
-                <p>Population: {numeral(country.population).format('0,0')}</p>
-                <p>Region: {country.region}</p>
-                <p>Sub Region: {country.subregion}</p>
-                <p>Capital: {country.capital} </p>
+                <p>Native Name: {country.name}.</p>
+                <p>Population: {numeral(country.population).format('0,0')}.</p>
+                <p>Region: {country.region}.</p>
+                <p>Sub Region: {country.subregion}.</p>
+                <p>Capital: {country.capital}. </p>
 
                 <p>
                   {country.borders && (
                     <>
                       Borders countries: {country?.borders[0]},
-                      {country?.borders[1]}
+                      {country?.borders[1]}.
                     </>
                   )}
                 </p>
               </div>
               <div className="col-sm-4">
-                <p>Top Level Domain: {country.topLevelDomain}</p>
-                <p>Currencies: {country.currencies[0].code}</p>
-                <p>Languages: {country.languages[0].name}</p>
+                <p>Top Level Domain: {country.topLevelDomain}.</p>
+                <p>Currencies: {country.currencies[0].code}.</p>
+                <p>Languages: {country.languages[0].name}.</p>
               </div>
             </div>
           </div>
