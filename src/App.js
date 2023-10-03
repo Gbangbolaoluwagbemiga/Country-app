@@ -102,7 +102,7 @@ function SearchBox({setSearchBtn}) {
 function CountryBox({onCountryOpen, onSetCountryId, countryId, countryApi}) {
   return (
     <div className="row" onClick={onCountryOpen}>
-      {data.map(country => (
+      {countryApi.map(country => (
         <CountryItem
           country={country}
           onSetCountryId={onSetCountryId}
@@ -149,7 +149,7 @@ function IndividualCountry({
   }
   return (
     <>
-      {data.map(country =>
+      {countryApi.map(country =>
         country.callingCodes === countryId ? (
           <div className="country--details" key={country.name}>
             {' '}

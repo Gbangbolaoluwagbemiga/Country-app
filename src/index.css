@@ -47,4 +47,8 @@ select option[value=''] {
   .Country--flag {
     width: 100%;
   }
+  .Input--container {
+    width: 50%;
+    margin: 0;
+  }
 }
