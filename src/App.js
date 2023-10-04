@@ -67,7 +67,7 @@ function SearchBox({setSearchBtn}) {
         className="Input--container"
         onChange={e => setSearchBtn(e.target.value)}
       />
-      <i className="fa-solid fa-magnifying-glass"></i>
+      {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       <select className="Input--container" value="">
         <option disabled selected value="">
           Filter by Region
