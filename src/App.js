@@ -52,7 +52,9 @@ function Header() {
   return (
     <header className="nav--bar my-5">
       <h2>Where in the world?</h2>
-      <p>Dark mode</p>
+      <p className="dark--theme">
+        <i className="fa-regular fa-moon"></i>Dark mode
+      </p>
     </header>
   );
 }
