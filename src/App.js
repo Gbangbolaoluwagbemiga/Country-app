@@ -17,24 +17,7 @@ function App() {
   function handleCountryId(id) {
     setCountryId(countryId => (id === countryId ? null : id));
   }
-  useEffect(
-    function () {
-      async function countryName() {
-        try {
-          const res = await fetch(
-            `https://restcountries.com/v3.1/name/${searchBtn}?fullText=true
-          `
-          );
-          const fetchData = await res.json();
-          setCountryApi(fetchData);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      countryName();
-    },
-    [searchBtn]
-  );
+  useEffect(function () {}, [searchBtn]);
   return (
     <div className="container">
       <Header />
