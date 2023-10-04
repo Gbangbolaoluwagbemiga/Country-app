@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* background-color: red; */
 }
 .container {
 }
@@ -17,6 +18,9 @@ body {
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 500;
+}
+.fa-moon {
+  margin-right: 3px;
 }
 .Input--container {
   width: 26%;
