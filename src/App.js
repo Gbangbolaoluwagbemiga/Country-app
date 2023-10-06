@@ -225,7 +225,13 @@ function IndividualCountry({
   );
 }
 function SearchedCountry({countryApi, searchQuery}) {
-  return <div>HIIIII</div>;
+  return (
+    <div>
+      {countryApi.map(country =>
+        country.name === searchQuery ? console.log('HII') : console.log('Hey')
+      )}
+    </div>
+  );
 }
 
 export default App;
