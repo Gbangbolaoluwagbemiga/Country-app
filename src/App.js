@@ -4,7 +4,7 @@ import numeral from 'numeral';
 function App() {
   const [countryOpen, setCountryOpen] = useState(false);
   const [countryId, setCountryId] = useState(null);
-  const [searchBtn, setSearchBtn] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [countryApi, setCountryApi] = useState(data);
 
   function handleCountryOpen() {
@@ -17,12 +17,16 @@ function App() {
   function handleCountryId(id) {
     setCountryId(countryId => (id === countryId ? null : id));
   }
-  useEffect(function () {}, [searchBtn]);
+  useEffect(function () {}, [searchQuery]);
   return (
     <div className="container">
       <Header />
-      {!countryOpen ? <SearchBox setSearchBtn={setSearchBtn} /> : ''}
-      {searchBtn === '' && (
+      {!countryOpen ? (
+        <SearchBox setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+      ) : (
+        ''
+      )}
+      {searchQuery === '' && (
         <div className=" ">
           {countryOpen ? (
             <IndividualCountry
@@ -43,7 +47,8 @@ function App() {
           )}
         </div>
       )}
-      {/* {searchBtn !== '' && <div>{countryApi.}</div>} */}
+      {searchQuery !== '' && <SearchedCountry />}
+      {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
     </div>
   );
 }
@@ -59,7 +64,13 @@ function Header() {
   );
 }
 
-function SearchBox({setSearchBtn}) {
+function SearchBox({setSearchQuery, searchQuery}) {
+  useEffect(
+    function () {
+      console.log('HII');
+    },
+    [searchQuery]
+  );
   return (
     <div className="search--category">
       <input
@@ -67,7 +78,7 @@ function SearchBox({setSearchBtn}) {
         placeholder="Search for a country"
         spellCheck
         className="Input--container"
-        onChange={e => setSearchBtn(e.target.value)}
+        onChange={e => setSearchQuery(e.target.value)}
       />
       {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       <select className="Input--container" value="">
@@ -210,6 +221,9 @@ function IndividualCountry({
       )}{' '}
     </>
   );
+}
+function SearchedCountry({countryApi}) {
+  return <div>HIIIII</div>;
 }
 
 export default App;
