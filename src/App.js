@@ -47,7 +47,9 @@ function App() {
           )}
         </div>
       )}
-      {searchQuery !== '' && <SearchedCountry />}
+      {searchQuery !== '' && (
+        <SearchedCountry countryApi={countryApi} searchQuery={searchQuery} />
+      )}
       {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
     </div>
   );
@@ -222,7 +224,7 @@ function IndividualCountry({
     </>
   );
 }
-function SearchedCountry({countryApi}) {
+function SearchedCountry({countryApi, searchQuery}) {
   return <div>HIIIII</div>;
 }
 
