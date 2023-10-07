@@ -48,7 +48,12 @@ function App() {
         </div>
       )}
       {searchQuery !== '' && (
-        <SearchedCountry countryApi={countryApi} searchQuery={searchQuery} />
+        <SearchedCountry
+          countryApi={countryApi}
+          searchQuery={searchQuery}
+          onSetCountryId={handleCountryId}
+          countryId={countryId}
+        />
       )}
       {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
     </div>
@@ -224,14 +229,27 @@ function IndividualCountry({
     </>
   );
 }
-function SearchedCountry({countryApi, searchQuery}) {
+function SearchedCountry({countryApi, searchQuery, onSetCountryId, countryId}) {
   return (
     <div>
-      {countryApi.find(country =>
-        country.name === searchQuery ? console.log('HII') : console.log('Hey')
+      {countryApi.map(country =>
+        country.name === searchQuery ? (
+          // <SearchCountryResult country={country} />
+          <CountryItem
+            country={country}
+            onSetCountryId={onSetCountryId}
+            countryId={countryId}
+            key={country.name}
+          />
+        ) : (
+          console.log('Hey')
+        )
       )}
     </div>
   );
+}
+function SearchCountryResult({country}) {
+  return <div></div>;
 }
 
 export default App;
