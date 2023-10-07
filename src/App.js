@@ -69,7 +69,7 @@ function Header() {
 function SearchBox({setSearchQuery, searchQuery}) {
   useEffect(
     function () {
-      console.log('HII');
+      // console.log('Height');
     },
     [searchQuery]
   );
@@ -227,7 +227,7 @@ function IndividualCountry({
 function SearchedCountry({countryApi, searchQuery}) {
   return (
     <div>
-      {countryApi.map(country =>
+      {countryApi.find(country =>
         country.name === searchQuery ? console.log('HII') : console.log('Hey')
       )}
     </div>
