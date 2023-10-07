@@ -128,7 +128,7 @@ function CountryItem({country, onSetCountryId, countryId}) {
     >
       <img
         className="Country--flag"
-        src={country.flags.png}
+        src={country.flags?.png}
         alt={country.name}
       />
       <p className="fw-bold fs-3 text-detail mt-5">{country.name}</p>
@@ -232,6 +232,8 @@ function IndividualCountry({
 
 function SearchedCountry({countryApi, searchQuery, onSetCountryId, countryId}) {
   const countryData = countryApi.find(country => country.name === searchQuery);
+
+  console.log(countryData.name);
   return (
     <div>
       {countryData ? (
