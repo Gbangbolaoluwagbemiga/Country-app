@@ -229,27 +229,30 @@ function IndividualCountry({
     </>
   );
 }
+
 function SearchedCountry({countryApi, searchQuery, onSetCountryId, countryId}) {
+  const countryData = countryApi.find(country => country.name === searchQuery);
   return (
     <div>
-      {countryApi.map(country =>
-        country.name === searchQuery ? (
-          // <SearchCountryResult country={country} />
-          <CountryItem
-            country={country}
-            onSetCountryId={onSetCountryId}
-            countryId={countryId}
-            key={country.name}
-          />
-        ) : (
-          console.log('Hey')
-        )
+      {countryData ? (
+        // <SearchCountryResult country={country} />
+        <CountryItem
+          country={countryData.name}
+          onSetCountryId={onSetCountryId}
+          countryId={countryId}
+          key={countryData.name}
+        />
+      ) : (
+        <ErrorCOuntry searchQuery={searchQuery} />
       )}
     </div>
   );
 }
 function SearchCountryResult({country}) {
   return <div></div>;
+}
+function ErrorCOuntry({searchQuery}) {
+  return <div>No country with the name {searchQuery} found</div>;
 }
 
 export default App;
