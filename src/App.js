@@ -34,7 +34,7 @@ function App() {
       ) : (
         ''
       )}
-      {/* {searchQuery === '' && (
+      {searchQuery === '' && (
         <div className=" ">
           {countryOpen ? (
             <IndividualCountry
@@ -54,7 +54,7 @@ function App() {
             </>
           )}
         </div>
-      )} */}
+      )}
       {/* {searchQuery !== '' && (
         <SearchedCountry
           countryApi={countryApi}
@@ -73,7 +73,7 @@ function Header() {
     <header className="nav--bar my-5">
       <h2>Where in the world?</h2>
       <p className="dark--theme">
-        <i class="fa-regular fa-moon"></i>Dark mode
+        <i className="fa-regular fa-moon"></i>Dark mode
       </p>
     </header>
   );
