@@ -36,7 +36,6 @@ function App() {
       )}
       {searchQuery === '' && (
         <div className=" ">
-          <p>Hiiiii</p>
           {countryOpen ? (
             <IndividualCountry
               countryApi={countryApi}
