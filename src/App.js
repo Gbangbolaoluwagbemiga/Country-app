@@ -231,7 +231,6 @@ function IndividualCountry({
 
 function SearchedCountry({countryApi, searchQuery, onSetCountryId, countryId}) {
   const countryData = countryApi.find(country => country.name === searchQuery);
-  // useEffect(function () {}, [searchQuery]);
 
   return (
     <div>
