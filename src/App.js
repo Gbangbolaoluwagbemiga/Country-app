@@ -34,7 +34,7 @@ function App() {
       ) : (
         ''
       )}
-      {searchQuery === '' && (
+      {/* {searchQuery === '' && (
         <div className=" ">
           {countryOpen ? (
             <IndividualCountry
@@ -54,15 +54,15 @@ function App() {
             </>
           )}
         </div>
-      )}
-      {searchQuery !== '' && (
+      )} */}
+      {/* {searchQuery !== '' && (
         <SearchedCountry
           countryApi={countryApi}
           searchQuery={searchQuery}
           onSetCountryId={handleCountryId}
           countryId={countryId}
         />
-      )}
+      )} */}
       {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
     </div>
   );
