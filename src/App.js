@@ -18,14 +18,14 @@ function App() {
     setCountryId(countryId => (id === countryId ? null : id));
   }
 
-  useEffect(
-    function () {
-      setSearchQuery(
-        prev => prev.split('')?.at(0)?.toUpperCase() + searchQuery.slice(1)
-      );
-    },
-    [searchQuery]
-  );
+  // useEffect(
+  //   function () {
+  //     setSearchQuery(
+  //       prev => prev.split('')?.at(0)?.toUpperCase() + searchQuery.slice(1)
+  //     );
+  //   },
+  //   [searchQuery]
+  // );
   return (
     <div className="container">
       <Header />
@@ -36,6 +36,7 @@ function App() {
       )}
       {searchQuery === '' && (
         <div className=" ">
+          <p>Hiiiii</p>
           {countryOpen ? (
             <IndividualCountry
               countryApi={countryApi}
