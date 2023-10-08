@@ -17,7 +17,6 @@ function App() {
   function handleCountryId(id) {
     setCountryId(countryId => (id === countryId ? null : id));
   }
-  useEffect(function () {}, [searchQuery]);
   return (
     <div className="container">
       <Header />
@@ -128,7 +127,7 @@ function CountryItem({country, onSetCountryId, countryId}) {
     >
       <img
         className="Country--flag"
-        src={country.flags?.png}
+        src={country.flags.png}
         alt={country.name}
       />
       <p className="fw-bold fs-3 text-detail mt-5">{country.name}</p>
@@ -232,14 +231,13 @@ function IndividualCountry({
 
 function SearchedCountry({countryApi, searchQuery, onSetCountryId, countryId}) {
   const countryData = countryApi.find(country => country.name === searchQuery);
+  // useEffect(function () {}, [searchQuery]);
 
-  console.log(countryData.name);
   return (
     <div>
       {countryData ? (
-        // <SearchCountryResult country={country} />
         <CountryItem
-          country={countryData.name}
+          country={countryData}
           onSetCountryId={onSetCountryId}
           countryId={countryId}
           key={countryData.name}
@@ -249,9 +247,6 @@ function SearchedCountry({countryApi, searchQuery, onSetCountryId, countryId}) {
       )}
     </div>
   );
-}
-function SearchCountryResult({country}) {
-  return <div></div>;
 }
 function ErrorCOuntry({searchQuery}) {
   return <div>No country with the name {searchQuery} found</div>;
