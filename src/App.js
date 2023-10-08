@@ -17,6 +17,15 @@ function App() {
   function handleCountryId(id) {
     setCountryId(countryId => (id === countryId ? null : id));
   }
+
+  useEffect(
+    function () {
+      setSearchQuery(
+        prev => prev.split('')?.at(0)?.toUpperCase() + searchQuery.slice(1)
+      );
+    },
+    [searchQuery]
+  );
   return (
     <div className="container">
       <Header />
