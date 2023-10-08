@@ -18,14 +18,6 @@ function App() {
     setCountryId(countryId => (id === countryId ? null : id));
   }
 
-  // useEffect(
-  //   function () {
-  //     setSearchQuery(
-  //       prev => prev.split('')?.at(0)?.toUpperCase() + searchQuery.slice(1)
-  //     );
-  //   },
-  //   [searchQuery]
-  // );
   return (
     <div className="container">
       <Header />
@@ -55,14 +47,15 @@ function App() {
           )}
         </div>
       )}
-      {/* {searchQuery !== '' && (
+      {searchQuery !== '' && (
         <SearchedCountry
           countryApi={countryApi}
           searchQuery={searchQuery}
           onSetCountryId={handleCountryId}
           countryId={countryId}
+          setSearchQuery={setSearchQuery}
         />
-      )} */}
+      )}
       {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
     </div>
   );
@@ -238,7 +231,21 @@ function IndividualCountry({
   );
 }
 
-function SearchedCountry({countryApi, searchQuery, onSetCountryId, countryId}) {
+function SearchedCountry({
+  countryApi,
+  searchQuery,
+  onSetCountryId,
+  countryId,
+  setSearchQuery,
+}) {
+  useEffect(
+    function () {
+      setSearchQuery(
+        prev => prev.split('')?.at(0)?.toUpperCase() + searchQuery.slice(1)
+      );
+    },
+    [searchQuery, setSearchQuery]
+  );
   const countryData = countryApi.find(country => country.name === searchQuery);
 
   return (
