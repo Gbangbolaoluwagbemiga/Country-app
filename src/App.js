@@ -62,15 +62,14 @@ function App() {
           setSearchQuery={setSearchQuery}
         />
       )}
-      {/* {optionRegion !== '' && (
+      {optionRegion !== '' && (
         <OptionRegion
           optionRegion={optionRegion}
           countryApi={countryApi}
           setCountryId={setCountryId}
           countryId={countryId}
         />
-      )} */}
-      {optionRegion !== '' && <p>hiiiiii</p>}
+      )}
       {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
     </div>
   );
