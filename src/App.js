@@ -32,7 +32,7 @@ function App() {
       ) : (
         ''
       )}
-      {searchQuery === '' && (
+      {searchQuery === '' && optionRegion === '' && (
         <div className=" ">
           {countryOpen ? (
             <IndividualCountry
@@ -53,7 +53,7 @@ function App() {
           )}
         </div>
       )}
-      {searchQuery !== '' && (
+      {searchQuery !== '' && optionRegion === '' && (
         <SearchedCountry
           countryApi={countryApi}
           searchQuery={searchQuery}
