@@ -5,6 +5,7 @@ function App() {
   const [countryOpen, setCountryOpen] = useState(false);
   const [countryId, setCountryId] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [optionRegion, setOptionRegion] = useState('');
   const [countryApi, setCountryApi] = useState(data);
 
   function handleCountryOpen() {
