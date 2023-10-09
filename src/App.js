@@ -93,7 +93,7 @@ function SearchBox({
   setOptionRegion,
 }) {
   function handleInput(e) {
-    setOptionRegion(() => '');
+    setOptionRegion('');
     setSearchQuery(e.target.value);
   }
   return (
@@ -108,7 +108,7 @@ function SearchBox({
       {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       <OptionField
         optionRegion={optionRegion}
-        setOptionRegion={() => setOptionRegion}
+        setOptionRegion={setOptionRegion}
       />{' '}
     </div>
   );
