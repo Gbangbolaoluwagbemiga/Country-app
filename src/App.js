@@ -70,7 +70,7 @@ function App() {
           countryId={countryId}
         />
       )}
-      {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
+      {searchQuery !== '' && <div>{countryApi.}</div>}
     </div>
   );
 }
