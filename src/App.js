@@ -92,12 +92,10 @@ function SearchBox({
   optionRegion,
   setOptionRegion,
 }) {
-  // useEffect(
-  // function () {
-  //   // console.log('Height');
-  // },
-  // [searchQuery]
-  // );
+  function handleInput(e) {
+    setOptionRegion(() => '');
+    setSearchQuery(e.target.value);
+  }
   return (
     <div className="search--category">
       <input
@@ -105,12 +103,12 @@ function SearchBox({
         placeholder="Search for a country"
         spellCheck
         className="Input--container"
-        onChange={e => setSearchQuery(e.target.value)}
+        onChange={handleInput}
       />
       {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       <OptionField
         optionRegion={optionRegion}
-        setOptionRegion={setOptionRegion}
+        setOptionRegion={() => setOptionRegion}
       />{' '}
     </div>
   );
