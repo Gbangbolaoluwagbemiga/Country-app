@@ -23,7 +23,12 @@ function App() {
     <div className="container">
       <Header />
       {!countryOpen ? (
-        <SearchBox setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+        <SearchBox
+          setSearchQuery={setSearchQuery}
+          searchQuery={searchQuery}
+          optionRegion={optionRegion}
+          setOptionRegion={setOptionRegion}
+        />
       ) : (
         ''
       )}
@@ -57,6 +62,14 @@ function App() {
           setSearchQuery={setSearchQuery}
         />
       )}
+      {optionRegion !== '' && (
+        <OptionRegion
+          optionRegion={optionRegion}
+          countryApi={countryApi}
+          setCountryId={setCountryId}
+          countryId={countryId}
+        />
+      )}
       {/* {searchQuery !== '' && <div>{countryApi.}</div>} */}
     </div>
   );
@@ -73,13 +86,18 @@ function Header() {
   );
 }
 
-function SearchBox({setSearchQuery, searchQuery}) {
-  useEffect(
-    function () {
-      // console.log('Height');
-    },
-    [searchQuery]
-  );
+function SearchBox({
+  setSearchQuery,
+  searchQuery,
+  optionRegion,
+  setOptionRegion,
+}) {
+  // useEffect(
+  // function () {
+  //   // console.log('Height');
+  // },
+  // [searchQuery]
+  // );
   return (
     <div className="search--category">
       <input
@@ -90,17 +108,36 @@ function SearchBox({setSearchQuery, searchQuery}) {
         onChange={e => setSearchQuery(e.target.value)}
       />
       {/* <i className="fa-solid fa-magnifying-glass"></i> */}
-      <select className="Input--container" value="">
-        <option disabled selected value="">
-          Filter by Region
-        </option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-      </select>
+      <OptionField
+        optionRegion={optionRegion}
+        setOptionRegion={setOptionRegion}
+      />{' '}
     </div>
+  );
+}
+
+function OptionField({optionRegion, setOptionRegion}) {
+  useEffect(
+    function () {
+      console.log(optionRegion);
+    },
+    [optionRegion]
+  );
+  return (
+    <select
+      className="Input--container"
+      value={optionRegion}
+      onChange={e => setOptionRegion(e.target.value)}
+    >
+      <option disabled selected value="">
+        Filter by Region
+      </option>
+      <option value="Africa">Africa</option>
+      <option value="America">America</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="Oceania">Oceania</option>
+    </select>
   );
 }
 
@@ -260,6 +297,30 @@ function SearchedCountry({
         />
       ) : (
         <ErrorCOuntry searchQuery={searchQuery} />
+      )}
+    </div>
+  );
+}
+
+function OptionRegion({
+  countryApi,
+  optionRegion,
+  onSetCountryId,
+  countryId,
+  setOptionRegion,
+}) {
+  return (
+    <div>
+      {countryApi.map(
+        country =>
+          country.region === optionRegion && (
+            <CountryItem
+              country={country}
+              onSetCountryId={onSetCountryId}
+              countryId={countryId}
+              key={country.name}
+            />
+          )
       )}
     </div>
   );
