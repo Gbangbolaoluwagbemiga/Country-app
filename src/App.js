@@ -66,7 +66,7 @@ function App() {
         <OptionRegion
           optionRegion={optionRegion}
           countryApi={countryApi}
-          setCountryId={setCountryId}
+          onSetCountryId={handleCountryId}
           countryId={countryId}
         />
       )}
