@@ -119,9 +119,9 @@ function SearchBox({
 function OptionField({optionRegion, setOptionRegion}) {
   useEffect(
     function () {
-      console.log(optionRegion);
+      setOptionRegion(optionRegion);
     },
-    [optionRegion]
+    [optionRegion, setOptionRegion]
   );
   return (
     <select
