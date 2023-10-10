@@ -59,6 +59,18 @@ select option[value=''] {
   font-weight: 800;
   font-size: 1.05rem;
 }
+.border--paragraph {
+  width: 60%;
+  font-size: 1rem;
+  margin-right: -4rem;
+}
+
+.border--span {
+  border: 1px solid hsl(0, 0%, 52%);
+  border-radius: 5px;
+  height: 1.75rem;
+  margin-right: 7px;
+}
 
 @media screen and (max-width: 567px) {
   .Country--flag {
