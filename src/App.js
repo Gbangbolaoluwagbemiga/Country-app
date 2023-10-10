@@ -94,6 +94,9 @@ function SearchBox({
   function handleInput(e) {
     setOptionRegion('');
     setSearchQuery(e.target.value);
+    if (searchQuery.length > 50) {
+      setSearchQuery((e.target.value = ''));
+    }
   }
   return (
     <div className="search--category">
@@ -336,7 +339,7 @@ function OptionRegion({
 }
 function ErrorCOuntry({searchQuery}) {
   return (
-    <div>
+    <div className="my-5">
       No country with the name{' '}
       <span style={{fontWeight: 700, fontSize: '1.25rem'}}>
         {' '}
