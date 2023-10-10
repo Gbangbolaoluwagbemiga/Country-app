@@ -323,7 +323,16 @@ function OptionRegion({
   );
 }
 function ErrorCOuntry({searchQuery}) {
-  return <div>No country with the name {searchQuery} found</div>;
+  return (
+    <div>
+      No country with the name{' '}
+      <span style={{fontWeight: 700, fontSize: '1.25rem'}}>
+        {' '}
+        "{searchQuery}"
+      </span>{' '}
+      found.
+    </div>
+  );
 }
 
 export default App;
