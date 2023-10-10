@@ -3,12 +3,16 @@ import {data} from './data.js';
 import numeral from 'numeral';
 function App() {
   const [countryOpen, setCountryOpen] = useState(false);
+  const [countrySearchOpen, setCountrySearchOpen] = useState(false);
   const [countryId, setCountryId] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [optionRegion, setOptionRegion] = useState('');
   const [countryApi, setCountryApi] = useState(data);
 
   function handleCountryOpen() {
+    setCountryOpen(prev => !prev);
+  }
+  function handleCountrySearchOpen() {
     setCountryOpen(prev => !prev);
   }
   function handleResetId() {
@@ -54,6 +58,7 @@ function App() {
         </div>
       )}
       {searchQuery !== '' && optionRegion === '' && (
+        //  {countryOpen?}
         <SearchedCountry
           countryApi={countryApi}
           searchQuery={searchQuery}
