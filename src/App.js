@@ -13,7 +13,7 @@ function App() {
     setCountryOpen(prev => !prev);
   }
   function handleCountrySearchOpen() {
-    setCountryOpen(prev => !prev);
+    setCountrySearchOpen(prev => !prev);
   }
   function handleResetId() {
     setCountryId(null);
@@ -58,14 +58,20 @@ function App() {
         </div>
       )}
       {searchQuery !== '' && optionRegion === '' && (
-        //  {countryOpen?}
-        <SearchedCountry
-          countryApi={countryApi}
-          searchQuery={searchQuery}
-          onSetCountryId={handleCountryId}
-          countryId={countryId}
-          setSearchQuery={setSearchQuery}
-        />
+        <>
+          {' '}
+          {countrySearchOpen ? (
+            'hi'
+          ) : (
+            <SearchedCountry
+              countryApi={countryApi}
+              searchQuery={searchQuery}
+              onSetCountryId={handleCountryId}
+              countryId={countryId}
+              setSearchQuery={setSearchQuery}
+            />
+          )}
+        </>
       )}
       {optionRegion !== '' && (
         <OptionRegion
