@@ -233,10 +233,10 @@ function IndividualCountry({
                   .{' '}
                 </p>
 
-                <p className="mt-5">
+                <p className="border--container">
                   {country.borders && (
                     <p className="row">
-                      <p className="bold--text border--paragraph fs-6 col-6">
+                      <p className="bold--text border--paragraph col-6">
                         {' '}
                         Borders countries:
                       </p>{' '}

@@ -59,6 +59,10 @@ select option[value=''] {
   font-weight: 800;
   font-size: 1.05rem;
 }
+.border--container {
+  margin-top: 4rem;
+}
+
 .border--paragraph {
   width: 60%;
   font-size: 1rem;
@@ -95,5 +99,15 @@ select option[value=''] {
   }
   .Input--container:focus {
     width: 47%;
+  }
+
+  .border--container {
+    margin-top: 0;
+  }
+
+  .border--paragraph {
+    width: 60%;
+    font-size: 1rem;
+    margin-right: -0.5rem;
   }
 }
