@@ -124,6 +124,7 @@ function SearchBox({
       />
       {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       <OptionField
+        setSearchQuery={setSearchQuery}
         optionRegion={optionRegion}
         setOptionRegion={setOptionRegion}
       />{' '}
@@ -131,18 +132,23 @@ function SearchBox({
   );
 }
 
-function OptionField({optionRegion, setOptionRegion}) {
+function OptionField({optionRegion, setOptionRegion, setSearchQuery}) {
   useEffect(
     function () {
       setOptionRegion(optionRegion);
     },
     [optionRegion, setOptionRegion]
   );
+
+  function handleOptionRegion(e) {
+    setSearchQuery('');
+    setOptionRegion(e.target.value);
+  }
   return (
     <select
       className="Input--container"
       value={optionRegion}
-      onChange={e => setOptionRegion(e.target.value)}
+      onChange={handleOptionRegion}
     >
       <option disabled selected value="">
         Filter by Region
