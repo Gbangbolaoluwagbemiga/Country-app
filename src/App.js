@@ -66,7 +66,6 @@ function App() {
               onReturnCountry={handleCountrySearchOpen}
               onHandleCountryId={handleResetId}
               countryId={countryId}
-              closeInput={() => setCountryOpen(true)}
             />
           ) : (
             <SearchedCountry
@@ -211,12 +210,10 @@ function IndividualCountry({
   countryId,
   onHandleCountryId,
   countryApi,
-  closeInput = '',
 }) {
   function handleReturn() {
     onReturnCountry();
     onHandleCountryId();
-    closeInput();
   }
   return (
     <>
