@@ -61,7 +61,12 @@ function App() {
         <>
           {' '}
           {countrySearchOpen ? (
-            'hi'
+            <IndividualCountry
+              countryApi={countryApi}
+              onReturnCountry={handleCountrySearchOpen}
+              onHandleCountryId={handleResetId}
+              countryId={countryId}
+            />
           ) : (
             <SearchedCountry
               countryApi={countryApi}
@@ -69,6 +74,7 @@ function App() {
               onSetCountryId={handleCountryId}
               countryId={countryId}
               setSearchQuery={setSearchQuery}
+              onCountrySearchOpen={handleCountrySearchOpen}
             />
           )}
         </>
@@ -302,6 +308,7 @@ function SearchedCountry({
   onSetCountryId,
   countryId,
   setSearchQuery,
+  onCountrySearchOpen,
 }) {
   useEffect(
     function () {
@@ -314,7 +321,7 @@ function SearchedCountry({
   const countryData = countryApi.find(country => country.name === searchQuery);
 
   return (
-    <div>
+    <div onClick={onCountrySearchOpen}>
       {countryData ? (
         <CountryItem
           country={countryData}
