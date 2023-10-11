@@ -216,12 +216,12 @@ function IndividualCountry({
             >
               &larr;
             </button>
-            <div className="row m-5">
+            <div className="row m-4">
               <div className="col-sm-4">
                 <img
                   src={country.flag}
                   alt={`${country.name} flag`}
-                  className="Country--flag"
+                  className="Country--flag mb-5"
                 />
               </div>
               <div className="col-sm-4">
