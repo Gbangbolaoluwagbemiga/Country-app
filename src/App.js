@@ -105,9 +105,6 @@ function SearchBox({
   function handleInput(e) {
     setOptionRegion('');
     setSearchQuery(e.target.value);
-    if (searchQuery.length > 50) {
-      setSearchQuery((e.target.value = ''));
-    }
   }
   return (
     <div className="search--category">
@@ -117,6 +114,7 @@ function SearchBox({
         spellCheck
         className="Input--container"
         onChange={handleInput}
+        maxLength={50}
       />
       {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       <OptionField
