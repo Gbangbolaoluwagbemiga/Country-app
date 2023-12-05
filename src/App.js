@@ -259,7 +259,7 @@ function IndividualCountry({
 
                 <p className="border--container">
                   {country.borders && (
-                    <p className="row">
+                    <div className="row">
                       <p className="bold--text border--paragraph col-5  justify-content-end">
                         {' '}
                         {country.borders.length >= 2
@@ -268,24 +268,10 @@ function IndividualCountry({
                       </p>{' '}
                       <div className="col-7 justify-content-start">
                         {country?.borders.map(border => (
-                          <span className=" border--span ">{border}</span>
+                          <span className="col-2 border--span ">{border}</span>
                         ))}
                       </div>
-                      {/* <span className="col-2 border--span ">
-                        {' '}
-                        {country?.borders[0]}
-                      </span>
-                      {country?.borders[1] && (
-                        <span className="col-2 border--span">
-                          {country.borders[1]}
-                        </span>
-                      )}
-                      {country?.borders[2] && (
-                        <span className="col-2 border--span">
-                          {country.borders[2]}
-                        </span>
-                      )} */}
-                    </p>
+                    </div>
                   )}
                 </p>
               </div>

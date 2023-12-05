@@ -66,8 +66,8 @@ select option[value=''] {
 
 .border--paragraph {
   font-size: 1rem;
-  /* width: 20rem; */
-  /* margin-right: -7rem; */
+  width: 10.75rem;
+  margin-right: -2rem;
 }
 
 .border--span {
@@ -107,11 +107,13 @@ select option[value=''] {
 
   .border--container {
     margin-top: 0;
+    width: 10rem;
   }
 
   .border--paragraph {
     font-size: 1rem;
-    /* width: 65%; */
+    width: 7rem;
+
     /* margin-right: -3rem; */
   }
   .bold--text {
