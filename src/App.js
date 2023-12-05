@@ -260,15 +260,18 @@ function IndividualCountry({
                 <p className="border--container">
                   {country.borders && (
                     <p className="row">
-                      <p className="bold--text border--paragraph col-6">
+                      <p className="bold--text border--paragraph col-4">
                         {' '}
                         {country.borders.length >= 2
                           ? 'Border countries:'
                           : 'Border country:'}
                       </p>{' '}
-                      {country?.borders.map(border => (
-                        <span className="col-2 border--span ">{border}</span>
-                      ))}
+                      <div className="col-8">
+                        {' '}
+                        {country?.borders.map(border => (
+                          <span className=" border--span ">{border}</span>
+                        ))}
+                      </div>
                       {/* <span className="col-2 border--span ">
                         {' '}
                         {country?.borders[0]}
