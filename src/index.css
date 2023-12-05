@@ -67,14 +67,14 @@ select option[value=''] {
 .border--paragraph {
   font-size: 1rem;
   width: 10.75rem;
-  margin-right: -2rem;
+  margin-right: -1rem;
 }
 
 .border--span {
   border: 1px solid hsl(0, 0%, 52%);
   border-radius: 5px;
   height: 1.75rem;
-  /* width: 95%; */
+  width: 20%;
   margin-right: 5px;
   padding: 0 0.25rem;
   text-align: center;
@@ -107,15 +107,22 @@ select option[value=''] {
 
   .border--container {
     margin-top: 0;
-    width: 10rem;
   }
 
   .border--paragraph {
     font-size: 1rem;
     width: 7rem;
-
     /* margin-right: -3rem; */
   }
+
+  .border--span {
+    height: 1.75rem;
+    width: 25%;
+    margin-right: 5px;
+    padding: 0 0.05rem;
+    font-size: 0.75rem;
+  }
+
   .bold--text {
     font-weight: 800;
     font-size: 0.85rem;

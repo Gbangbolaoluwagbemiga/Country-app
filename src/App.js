@@ -266,7 +266,7 @@ function IndividualCountry({
                           ? 'Border countries:'
                           : 'Border country:'}
                       </p>{' '}
-                      <div className="col-7 justify-content-start">
+                      <div className="row col-7 justify-content-start">
                         {country?.borders.map(border => (
                           <span className="col-2 border--span ">{border}</span>
                         ))}
