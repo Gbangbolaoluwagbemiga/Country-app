@@ -266,7 +266,10 @@ function IndividualCountry({
                           ? 'Border countries:'
                           : 'Border country:'}
                       </p>{' '}
-                      <span className="col-2 border--span ">
+                      {country?.borders.map(border => (
+                        <span className="col-2 border--span ">{border}</span>
+                      ))}
+                      {/* <span className="col-2 border--span ">
                         {' '}
                         {country?.borders[0]}
                       </span>
@@ -279,7 +282,7 @@ function IndividualCountry({
                         <span className="col-2 border--span">
                           {country.borders[2]}
                         </span>
-                      )}
+                      )} */}
                     </p>
                   )}
                 </p>
@@ -313,7 +316,6 @@ function SearchedCountry({
   searchQuery,
   onSetCountryId,
   countryId,
-  setSearchQuery,
   onCountrySearchOpen,
 }) {
   const countryData = countryApi.find(
