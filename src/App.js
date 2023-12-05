@@ -316,14 +316,6 @@ function SearchedCountry({
   setSearchQuery,
   onCountrySearchOpen,
 }) {
-  // useEffect(
-  //   function () {
-  //     setSearchQuery(
-  //       prev => prev.split('')?.at(0)?.toUpperCase() + searchQuery.slice(1)
-  //     );
-  //   },
-  //   [searchQuery, setSearchQuery]
-  // );
   const countryData = countryApi.find(
     country => country.name.toLowerCase() === searchQuery.toLowerCase()
   );
