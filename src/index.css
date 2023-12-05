@@ -60,12 +60,13 @@ select option[value=''] {
   font-size: 1.05rem;
 }
 .border--container {
+  width: 100%;
   margin-top: 4rem;
 }
 
 .border--paragraph {
-  width: 20rem;
   font-size: 1rem;
+  /* width: 20rem; */
   /* margin-right: -7rem; */
 }
 
@@ -73,7 +74,7 @@ select option[value=''] {
   border: 1px solid hsl(0, 0%, 52%);
   border-radius: 5px;
   height: 1.75rem;
-  width: 95%;
+  /* width: 95%; */
   margin-right: 5px;
   padding: 0 0.25rem;
   text-align: center;
@@ -109,8 +110,12 @@ select option[value=''] {
   }
 
   .border--paragraph {
-    width: 65%;
     font-size: 1rem;
-    margin-right: -3rem;
+    /* width: 65%; */
+    /* margin-right: -3rem; */
+  }
+  .bold--text {
+    font-weight: 800;
+    font-size: 0.85rem;
   }
 }
